@@ -106,6 +106,20 @@ export default function RootLayout({
         <meta name="geo.placename" content="São José dos Pinhais" />
         <meta name="geo.position" content="-25.5342;-49.2063" />
         <meta name="ICBM" content="-25.5342, -49.2063" />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKYD9CL66E"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-EKYD9CL66E');
+            `,
+          }}
+        />
+
         <LocalBusinessSchema />
         <WebsiteSchema />
         <OrganizationSchema />
