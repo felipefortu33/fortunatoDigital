@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Instagram, Mail, MapPin, Heart } from 'lucide-react'
@@ -114,10 +116,10 @@ const Footer = () => {
                 <div className="text-gray-400 text-sm">
                   <div className="font-medium text-white">Email</div>
                   <a
-                    href="mailto:contato@fortunatodigital.com"
+                    href="mailto:fortunatodigital535@gmail.com"
                     className="hover:text-primary transition-colors duration-300"
                   >
-                    contato@fortunatodigital.com
+                    fortunatodigital535@gmail.com
                   </a>
                 </div>
               </li>
