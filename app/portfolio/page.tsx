@@ -187,7 +187,7 @@ export default function Portfolio() {
 
                 {/* Depoimento */}
                 <p className="text-gray-600 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
 
                 {/* Autor */}
