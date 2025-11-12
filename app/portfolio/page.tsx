@@ -1,12 +1,9 @@
+'use client'
+
 import ProjectCard from '@/components/ProjectCard'
 import { Lightbulb, TrendingUp, ArrowRight } from 'lucide-react'
-import type { Metadata } from 'next'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: 'Portfólio - Fortunato Digital',
-  description: 'Conheça nossos projetos de desenvolvimento web: sistemas de gerenciamento, plataformas de imagens, aplicações com autenticação e integrações com APIs.',
-}
+import Carousel from '@/components/Carousel'
 
 export default function Portfolio() {
   const projects = [
@@ -143,7 +140,8 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Desktop - Grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <ProjectCard
                 key={project.title}
@@ -153,6 +151,21 @@ export default function Portfolio() {
                 imageUrl={project.imageUrl}
               />
             ))}
+          </div>
+
+          {/* Mobile - Carrossel */}
+          <div className="md:hidden">
+            <Carousel autoplay autoplayDelay={5000}>
+              {projects.map((project) => (
+                <ProjectCard
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  technologies={project.technologies}
+                  imageUrl={project.imageUrl}
+                />
+              ))}
+            </Carousel>
           </div>
         </div>
       </section>
@@ -169,7 +182,8 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Desktop - Grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
               <div key={testimonial.name} className="card">
                 {/* Estrelas */}
@@ -197,6 +211,39 @@ export default function Portfolio() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile - Carrossel */}
+          <div className="md:hidden">
+            <Carousel autoplay autoplayDelay={4000}>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.name} className="card mx-2">
+                  {/* Estrelas */}
+                  <div className="flex items-center space-x-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-5 h-5 text-yellow-400 fill-current"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  {/* Depoimento */}
+                  <p className="text-gray-600 mb-6 leading-relaxed italic">
+                    &quot;{testimonial.text}&quot;
+                  </p>
+
+                  {/* Autor */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <div className="font-heading font-bold text-dark">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">{testimonial.company}</div>
+                  </div>
+                </div>
+              ))}
+            </Carousel>
           </div>
         </div>
       </section>

@@ -1,11 +1,8 @@
-import { Target, Award, Users, TrendingUp, Code2, Database, Server, Blocks } from 'lucide-react'
-import type { Metadata } from 'next'
-import Link from 'next/link'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Sobre - Fortunato Digital',
-  description: 'Conheça a Fortunato Digital. Especialistas em desenvolvimento web profissional com experiência em React, Next.js, Java, Spring Boot e tecnologias modernas.',
-}
+import { Target, Award, Users, TrendingUp, Code2, Database, Server, Blocks } from 'lucide-react'
+import Link from 'next/link'
+import Carousel from '@/components/Carousel'
 
 export default function Sobre() {
   const differentials = [
@@ -160,7 +157,8 @@ export default function Sobre() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Desktop - Grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8">
             {differentials.map((item) => {
               const Icon = item.icon
               return (
@@ -184,6 +182,34 @@ export default function Sobre() {
               )
             })}
           </div>
+
+          {/* Mobile - Carrossel */}
+          <div className="md:hidden">
+            <Carousel autoplay autoplayDelay={4000}>
+              {differentials.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div key={item.title} className="card group mx-2">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0">
+                        <div className="p-3 bg-gradient-main rounded-lg">
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-heading font-bold text-dark mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </Carousel>
+          </div>
         </div>
       </section>
 
@@ -199,7 +225,8 @@ export default function Sobre() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Desktop - Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Frontend */}
             <div className="card">
               <div className="flex items-center space-x-2 mb-6">
@@ -275,6 +302,39 @@ export default function Sobre() {
                 })}
               </ul>
             </div>
+          </div>
+
+          {/* Mobile - Carrossel */}
+          <div className="md:hidden">
+            <Carousel autoplay autoplayDelay={4000}>
+              {[
+                { title: 'Frontend', icon: Code2, items: techStack.frontend },
+                { title: 'Backend', icon: Server, items: techStack.backend },
+                { title: 'Banco de Dados', icon: Database, items: techStack.database },
+                { title: 'Ferramentas', icon: Blocks, items: techStack.tools },
+              ].map((category) => {
+                const Icon = category.icon
+                return (
+                  <div key={category.title} className="card mx-2">
+                    <div className="flex items-center space-x-2 mb-6">
+                      <Icon className="w-6 h-6 text-primary" />
+                      <h3 className="text-xl font-heading font-bold text-dark">{category.title}</h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {category.items.map((tech) => {
+                        const TechIcon = tech.icon
+                        return (
+                          <li key={tech.name} className="flex items-center space-x-3 text-gray-600">
+                            <TechIcon className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>{tech.name}</span>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                )
+              })}
+            </Carousel>
           </div>
         </div>
       </section>

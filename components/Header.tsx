@@ -40,14 +40,14 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
+        isScrolled ? 'bg-gradient-main shadow-lg' : 'bg-gradient-main'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-12 h-12 hover:scale-110 transition-transform duration-300">
+            <div className="relative w-16 h-16 hover:scale-110 transition-transform duration-300">
               <Image
                 src="/img/logofd.PNG"
                 alt="Fortunato Digital"
@@ -57,8 +57,8 @@ const Header = () => {
               />
             </div>
             <div className="hidden sm:block">
-              <div className="text-sm font-semibold text-dark">Fortunato Digital</div>
-              <div className="text-xs text-gray-600">Desenvolvimento Web</div>
+              <div className="text-sm font-semibold text-white">Fortunato Digital</div>
+              <div className="text-xs text-white/80">Desenvolvimento Web</div>
             </div>
           </Link>
 
@@ -70,19 +70,19 @@ const Header = () => {
                 href={link.href}
                 className={`relative font-medium transition-colors duration-300 ${
                   isActive(link.href)
-                    ? 'text-primary'
-                    : 'text-dark hover:text-primary'
+                    ? 'text-white font-bold'
+                    : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-main" />
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white" />
                 )}
               </Link>
             ))}
             <Link
               href="/contato"
-              className="btn-primary"
+              className="bg-white text-dark font-semibold px-6 py-2.5 rounded-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Orçamento Grátis
             </Link>
@@ -91,13 +91,13 @@ const Header = () => {
           {/* Botão Hamburger Mobile */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors duration-300"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-dark" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-dark" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
@@ -115,8 +115,8 @@ const Header = () => {
                 href={link.href}
                 className={`font-medium py-2 px-4 rounded-lg transition-all duration-300 ${
                   isActive(link.href)
-                    ? 'bg-gradient-main text-white'
-                    : 'text-dark hover:bg-gray-100'
+                    ? 'bg-white text-dark font-bold'
+                    : 'text-white hover:bg-white/20'
                 }`}
               >
                 {link.label}
@@ -124,7 +124,7 @@ const Header = () => {
             ))}
             <Link
               href="/contato"
-              className="btn-primary text-center"
+              className="bg-white text-dark font-semibold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300 text-center"
             >
               Orçamento Grátis
             </Link>

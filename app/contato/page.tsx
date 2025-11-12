@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Mail, MapPin, Clock, Send, CheckCircle2, Phone, Instagram } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+import Carousel from '@/components/Carousel'
 
 export default function Contato() {
   const [formData, setFormData] = useState({
@@ -363,7 +364,8 @@ export default function Contato() {
             Perguntas <span className="gradient-text">Frequentes</span>
           </h2>
 
-          <div className="space-y-6">
+          {/* Desktop - Grid */}
+          <div className="hidden md:block space-y-6">
             <div className="card">
               <h3 className="text-lg font-heading font-bold text-dark mb-2">
                 Qual o prazo médio de entrega?
@@ -393,6 +395,41 @@ export default function Contato() {
                 dúvidas e pequenas alterações.
               </p>
             </div>
+          </div>
+
+          {/* Mobile - Carrossel */}
+          <div className="md:hidden">
+            <Carousel autoplay autoplayDelay={4000}>
+              <div className="card mx-2">
+                <h3 className="text-lg font-heading font-bold text-dark mb-2">
+                  Qual o prazo médio de entrega?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Landing Pages: 3-5 dias úteis. Sites Institucionais: 7-10 dias úteis.
+                  Sistemas Personalizados variam conforme a complexidade.
+                </p>
+              </div>
+
+              <div className="card mx-2">
+                <h3 className="text-lg font-heading font-bold text-dark mb-2">
+                  Como funciona o pagamento?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  50% no início do projeto para iniciar o desenvolvimento e 50% na entrega,
+                  após sua aprovação. Aceitamos PIX, transferência e cartão.
+                </p>
+              </div>
+
+              <div className="card mx-2">
+                <h3 className="text-lg font-heading font-bold text-dark mb-2">
+                  Vocês oferecem suporte após a entrega?
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Sim! Todos os projetos incluem 30 dias de suporte gratuito para ajustes,
+                  dúvidas e pequenas alterações.
+                </p>
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>

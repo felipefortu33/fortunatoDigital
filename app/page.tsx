@@ -1,11 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, Zap, Code2, Headphones, CheckCircle2, Sparkles } from 'lucide-react'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Fortunato Digital - Transformando Ideias em Código',
-  description: 'Desenvolvimento Web Profissional para Empresas que Querem Crescer Online. Landing Pages, Sites Institucionais e Sistemas Web personalizados.',
-}
+import Carousel from '@/components/Carousel'
 
 export default function Home() {
   const services = [
@@ -26,10 +23,18 @@ export default function Home() {
       link: '/servicos',
     },
     {
+      title: 'Tráfego Pago',
+      price: 'Sob consulta',
+      description: 'Gestão profissional de campanhas no Google Ads e Meta Ads.',
+      icon: Zap,
+      features: ['Google Ads', 'Meta Ads', 'Análise de ROI', 'Relatórios mensais'],
+      link: '/servicos#trafego-pago',
+    },
+    {
       title: 'Sistemas Personalizados',
       price: 'Sob consulta',
       description: 'Soluções sob medida com backend completo e integrações avançadas.',
-      icon: Zap,
+      icon: Code2,
       features: ['Frontend + Backend', 'APIs e integrações', 'Dashboards', 'Sob medida'],
       link: '/servicos',
     },
@@ -143,8 +148,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Grid de serviços */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Grid de serviços - Desktop */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service) => {
               const Icon = service.icon
               return (
@@ -186,6 +191,53 @@ export default function Home() {
                 </div>
               )
             })}
+          </div>
+
+          {/* Carrossel de serviços - Mobile */}
+          <div className="md:hidden">
+            <Carousel autoplay autoplayDelay={4000}>
+              {services.map((service) => {
+                const Icon = service.icon
+                return (
+                  <div key={service.title} className="card group mx-2">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-gradient-main rounded-lg">
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs text-gray-500 font-medium">A partir de</div>
+                        <div className="text-lg font-bold text-dark">{service.price}</div>
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-heading font-bold text-dark mb-3">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center space-x-2 text-sm text-gray-600">
+                          <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href={service.link}
+                      className="inline-flex items-center space-x-2 text-primary font-semibold hover:text-secondary transition-colors duration-300 group/link"
+                    >
+                      <span>Saiba mais</span>
+                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                  </div>
+                )
+              })}
+            </Carousel>
           </div>
         </div>
       </section>
