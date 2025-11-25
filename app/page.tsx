@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Zap, Code2, Headphones, CheckCircle2, Sparkles } from 'lucide-react'
 import Carousel from '@/components/Carousel'
 
@@ -66,34 +67,38 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-main overflow-hidden pt-20">
-        {/* Elementos decorativos de fundo */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+      <section className="relative h-[100vh] flex items-center justify-center overflow-hidden pt-20">
+        {/* Imagem de fundo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/img/capa-hero-home.png"
+            alt="Sistema de automação digital"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-secondary/90"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="animate-fade-in-up">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center animate-fade-in-up">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full mb-8">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-semibold">Desenvolvimento Web Profissional</span>
-            </div>
+            
 
             {/* Título principal */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-5 leading-tight">
               Transformando Ideias<br />
               em <span className="text-dark">Código</span>
             </h1>
 
             {/* Subtítulo */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
               Desenvolvimento Web Profissional para Empresas que Querem Crescer Online
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <Link
                 href="/contato"
                 className="bg-white text-dark font-semibold px-8 py-4 rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center space-x-2 group"
@@ -110,25 +115,25 @@ export default function Home() {
             </div>
 
             {/* Estatísticas */}
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
+            <div className="grid grid-cols-3 gap-6 max-w-xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
-                <div className="text-sm text-white/80">Projetos Entregues</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">50+</div>
+                <div className="text-xs md:text-sm text-white/80">Projetos Entregues</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
-                <div className="text-sm text-white/80">Satisfação</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">100%</div>
+                <div className="text-xs md:text-sm text-white/80">Satisfação</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">7+</div>
-                <div className="text-sm text-white/80">Tecnologias</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">7+</div>
+                <div className="text-xs md:text-sm text-white/80">Tecnologias</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Indicador de scroll */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white/50 rounded-full" />
           </div>

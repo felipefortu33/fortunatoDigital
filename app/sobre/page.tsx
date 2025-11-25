@@ -2,6 +2,7 @@
 
 import { Target, Award, Users, TrendingUp, Code2, Database, Server, Blocks } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Carousel from '@/components/Carousel'
 
 export default function Sobre() {
@@ -73,20 +74,31 @@ export default function Sobre() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-main overflow-hidden">
+      <section className="relative min-h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden pt-20">
         {/* Elementos decorativos */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+          <Image
+            src="/img/capa-hero-sobre.png"
+            alt="Sistema de automação digital"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-secondary/90"></div>
         </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 md:mb-5">
             Sobre a <span className="text-dark">Fortunato Digital</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
             Especialistas em desenvolvimento web profissional, transformando ideias em soluções digitais de alto impacto
           </p>
+        </div>
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white/50 rounded-full" />
+          </div>
         </div>
       </section>
 

@@ -29,8 +29,10 @@ const Header = () => {
     { href: '/', label: 'Home' },
     { href: '/sobre', label: 'Sobre' },
     { href: '/servicos', label: 'Serviços' },
+    { href: '/automacoes', label: 'Automações' },
     { href: '/portfolio', label: 'Portfólio' },
     { href: '/contato', label: 'Contato' },
+    
   ]
 
   const isActive = (path: string) => {
