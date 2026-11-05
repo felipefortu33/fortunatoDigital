@@ -709,7 +709,7 @@ export default function Automacoes() {
                   </svg>
                 </div>
                 <p className="text-gray-600 mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div>
                   <div className="font-bold text-dark">{testimonial.author}</div>
@@ -733,7 +733,7 @@ export default function Automacoes() {
                     </svg>
                   </div>
                   <p className="text-gray-600 mb-6 leading-relaxed italic">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div>
                     <div className="font-bold text-dark">{testimonial.author}</div>

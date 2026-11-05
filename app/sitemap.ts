@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://fortunatodigital.com'
+  const baseUrl = 'https://fortunatodigital.com.br'
 
   return [
     {

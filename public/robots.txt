@@ -1,5 +1,5 @@
 # Robots.txt - Fortunato Digital
-# https://fortunatodigital.com
+# https://fortunatodigital.com.br
 
 User-agent: *
 Allow: /
@@ -11,7 +11,7 @@ Allow: /portfolio
 Allow: /contato
 
 # Sitemap
-Sitemap: https://fortunatodigital.com/sitemap.xml
+Sitemap: https://fortunatodigital.com.br/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1

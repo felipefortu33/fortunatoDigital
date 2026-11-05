@@ -20,6 +20,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fortunatodigital.com.br'),
   title: {
     default: 'Fortunato Digital - Desenvolvimento Web Profissional',
     template: '%s | Fortunato Digital',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     'agência digital',
     'fortunato digital',
   ],
-  authors: [{ name: 'Felipe Fortunato', url: 'https://fortunatodigital.com' }],
+  authors: [{ name: 'Felipe Fortunato', url: 'https://fortunatodigital.com.br' }],
   creator: 'Fortunato Digital',
   publisher: 'Fortunato Digital',
   category: 'Technology',
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://fortunatodigital.com',
+    url: 'https://fortunatodigital.com.br',
     title: 'Fortunato Digital - Desenvolvimento Web Profissional',
     description: 'Transformando Ideias em Código. Desenvolvimento Web Profissional com tecnologias modernas.',
     siteName: 'Fortunato Digital',
@@ -100,7 +101,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/img/logofd.PNG" />
         <link rel="apple-touch-icon" href="/img/logofd.PNG" />
-        <link rel="canonical" href="https://fortunatodigital.com" />
+        <link rel="canonical" href="https://fortunatodigital.com.br" />
         <meta name="theme-color" content="#FFB3D9" />
         <meta name="geo.region" content="BR-PR" />
         <meta name="geo.placename" content="São José dos Pinhais" />

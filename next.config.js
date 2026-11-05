@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [],
-    unoptimized: false,
+    unoptimized: true,
   },
   // Otimizações de build
   swcMinify: true,
